@@ -7,7 +7,7 @@ use Identicon\Generator\GeneratorInterface;
 /**
  * @author Francis Chuang <francis.chuang@gmail.com>
  */
-class ImageMagickGenerator extends BaseGenerator implements GeneratorInterface
+class ImageMagickGenerator extends BaseImagePngGenerator implements GeneratorInterface
 {
     public function __construct()
     {

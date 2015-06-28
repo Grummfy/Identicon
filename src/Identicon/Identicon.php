@@ -6,7 +6,7 @@ use Identicon\Generator\GdGenerator;
 use Identicon\Generator\GeneratorInterface;
 
 /**
- * @author Benjamin Laugueux <benjamin@yzalis.com>
+ * @author Grummfy <grummfy@gmail.com>
  */
 class Identicon
 {
@@ -49,7 +49,7 @@ class Identicon
      */
     public function displayImage($string, $size = 64, $color = null, $backgroundColor = null)
     {
-        header("Content-Type: image/png");
+        header("Content-Type: " . $this->generator->getMimeType());
         echo $this->getImageData($string, $size, $color, $backgroundColor);
     }
 
@@ -95,6 +95,6 @@ class Identicon
      */
     public function getImageDataUri($string, $size = 64, $color = null, $backgroundColor = null)
     {
-        return sprintf('data:image/png;base64,%s', base64_encode($this->getImageData($string, $size, $color, $backgroundColor)));
+        return sprintf('data:' . $this->generator->getMimeType() . ';base64,%s', base64_encode($this->getImageData($string, $size, $color, $backgroundColor)));
     }
 }
